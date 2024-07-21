@@ -29,6 +29,7 @@ class SigninView extends GetView<SigninController> {
               ),
               const SizedBox(height: 20),
               TextField(
+                controller: controller.usernameController,
                 decoration: InputDecoration(
                   labelText: 'Username',
                   border: OutlineInputBorder(
@@ -38,6 +39,8 @@ class SigninView extends GetView<SigninController> {
               ),
               const SizedBox(height: 20,),// Adjust this value to move the button further down
               TextField(
+                obscureText: true,
+                controller: controller.passwordController,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(
@@ -47,7 +50,7 @@ class SigninView extends GetView<SigninController> {
               ),
               const SizedBox(height: 40,),// Adjust this value to move the button further down
               TextButton.icon(
-                onPressed: controller.onSignin,
+                onPressed: controller.signIn,
                 label: const Text(
                   'Masuk',
                   style: TextStyle(color: Colors.white),

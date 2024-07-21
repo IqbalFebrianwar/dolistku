@@ -57,7 +57,6 @@ class SignoutView extends GetView<SignoutController> {
                 controller: controller.passwordController,
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
-                obscuringCharacter: "_",
                 decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(

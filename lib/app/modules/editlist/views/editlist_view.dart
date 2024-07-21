@@ -9,17 +9,18 @@ class EditlistView extends GetView<EditlistController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: const Text(''),
         centerTitle: false,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white,),
-          onPressed: () {
-            // Tambahkan aksi untuk kembali di sini
-          },
-        ),
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+            onPressed: () => Get.back(closeOverlays: true, canPop: true)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -27,7 +28,7 @@ class EditlistView extends GetView<EditlistController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Ubah List',
+              'Membuat List',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -35,7 +36,7 @@ class EditlistView extends GetView<EditlistController> {
             ),
             const SizedBox(height: 8),
             const Text(
-              'Masukkan list yang ingin di ubah',
+              'Masukkan list yang ingin kamu buat',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
@@ -43,30 +44,22 @@ class EditlistView extends GetView<EditlistController> {
             ),
             const SizedBox(height: 32),
             TextField(
+              controller: controller.nameController,
               decoration: InputDecoration(
-                labelText: 'Nama Taks',
+                labelText: 'Nama List',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ),
             const SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Tanggal',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                suffixIcon: IconButton(
-                  icon: const Icon(Icons.calendar_today),
-                  onPressed: () {
-                    // Tambahkan aksi untuk memilih tanggal di sini
-                  },
-                ),
-              ),
-            ),
+            ElevatedButton(
+          onPressed: () => controller.selectDate(context),
+          child: const Text('Pick Date-Time'),
+        ),
             const SizedBox(height: 16),
             TextField(
+              controller: controller.descriptionController,
               decoration: InputDecoration(
                 labelText: 'Deskripsi (Optional)',
                 border: OutlineInputBorder(
@@ -85,9 +78,7 @@ class EditlistView extends GetView<EditlistController> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                onPressed: () {
-                  // Tambahkan aksi untuk tombol simpan di sini
-                },
+                onPressed: controller.onSubmit,
                 child: const Text(
                   'Simpan',
                   style: TextStyle(

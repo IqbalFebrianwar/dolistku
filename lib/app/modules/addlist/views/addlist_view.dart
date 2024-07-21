@@ -19,7 +19,7 @@ class AddlistView extends GetView<AddlistController> {
               Icons.arrow_back,
               color: Colors.white,
             ),
-            onPressed: controller.onHome),
+            onPressed: () => Get.back(closeOverlays: true, canPop: true)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -43,6 +43,7 @@ class AddlistView extends GetView<AddlistController> {
             ),
             const SizedBox(height: 32),
             TextField(
+              controller: controller.nameController,
               decoration: InputDecoration(
                 labelText: 'Nama List',
                 border: OutlineInputBorder(
@@ -51,22 +52,13 @@ class AddlistView extends GetView<AddlistController> {
               ),
             ),
             const SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Tanggal',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                suffixIcon: IconButton(
-                  icon: const Icon(Icons.calendar_today),
-                  onPressed: () {
-                    // Tambahkan aksi untuk memilih tanggal di sini
-                  },
-                ),
-              ),
-            ),
+            ElevatedButton(
+          onPressed: () => controller.selectDate(context),
+          child: const Text('Pick Date-Time'),
+        ),
             const SizedBox(height: 16),
             TextField(
+              controller: controller.descriptionController,
               decoration: InputDecoration(
                 labelText: 'Deskripsi (Optional)',
                 border: OutlineInputBorder(
@@ -85,9 +77,7 @@ class AddlistView extends GetView<AddlistController> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                onPressed: () {
-                  // Tambahkan aksi untuk tombol simpan di sini
-                },
+                onPressed: controller.onSubmit,
                 child: const Text(
                   'Simpan',
                   style: TextStyle(

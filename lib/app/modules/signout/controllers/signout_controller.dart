@@ -26,19 +26,18 @@ class SignoutController extends GetxController {
   void _initialize() async {
     try{
       await _connection.connect();
-      _realm = _connection.realm();
+      _realm = _connection.realm;
       _realm.subscriptions.update((action){
         action.add(_realm.all<schema.User>());
       });
       await _realm.subscriptions.waitForSynchronization();
-    }catch(_){
+    }catch(e){
+      print(e);
       dialog(
         title: "Kesalahan pada server!"
       );
     }
   }
-
-  
 
   bool _checkUsername({ required String username }){
     final user = _realm.query<schema.User>("username == \$0", [username]).toList();
@@ -55,6 +54,11 @@ class SignoutController extends GetxController {
         DateTime.timestamp()
       ));
     });
+
+    dialog(
+      title: "Berhasil! Silahkan login",
+      onPressed: login
+    );
   }
 
   void onSubmit(){

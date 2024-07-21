@@ -1,7 +1,6 @@
+import 'package:dolistku/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/listdetail_controller.dart';
 
 class ListdetailView extends GetView<ListdetailController> {
@@ -12,13 +11,29 @@ class ListdetailView extends GetView<ListdetailController> {
       appBar: AppBar(
         title: const Text('ListdetailView'),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: () {
+              Get.toNamed(Routes.EDITLIST, arguments: controller.args);
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: controller.delete,
+          ),
+
+        ],
       ),
-      body: const Center(
-        child: Text(
-          'ListdetailView is working',
-          style: TextStyle(fontSize: 20),
+      body: Obx(
+        () => Column(
+          children: [
+            Text(controller.title.value),
+            Text(controller.description.value),
+            Text(controller.date.value),
+          ],
         ),
-      ),
+      )
     );
   }
 }
