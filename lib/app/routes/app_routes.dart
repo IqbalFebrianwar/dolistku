@@ -8,6 +8,8 @@ abstract class Routes {
   static const ADDLIST = _Paths.ADDLIST;
   static const EDITLIST = _Paths.EDITLIST;
   static const LISTDETAIL = _Paths.LISTDETAIL;
+  static const SIGNOUT = _Paths.SIGNOUT;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -17,4 +19,6 @@ abstract class _Paths {
   static const ADDLIST = '/addlist';
   static const EDITLIST = '/editlist';
   static const LISTDETAIL = '/listdetail';
+  static const SIGNOUT = '/signout';
+  static const PROFILE = '/profile';
 }

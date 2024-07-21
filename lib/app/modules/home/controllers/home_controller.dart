@@ -1,13 +1,14 @@
 import 'package:dolistku/app/routes/app_pages.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:localstorage/localstorage.dart';
 
 class HomeController extends GetxController {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void onReady(){
-    if(_auth.currentUser == null){
+    super.onReady();
+    final userId = localStorage.getItem("userId");
+    if(userId == null){
       Get.offAllNamed(Routes.SIGNIN);
     }
   }

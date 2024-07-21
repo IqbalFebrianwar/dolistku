@@ -8,8 +8,12 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/listdetail/bindings/listdetail_binding.dart';
 import '../modules/listdetail/views/listdetail_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/views/profile_view.dart';
 import '../modules/signin/bindings/signin_binding.dart';
 import '../modules/signin/views/signin_view.dart';
+import '../modules/signout/bindings/signout_binding.dart';
+import '../modules/signout/views/signout_view.dart';
 
 part 'app_routes.dart';
 
@@ -43,6 +47,16 @@ class AppPages {
       name: _Paths.LISTDETAIL,
       page: () => const ListdetailView(),
       binding: ListdetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.SIGNOUT,
+      page: () => const SignoutView(),
+      binding: SignoutBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }

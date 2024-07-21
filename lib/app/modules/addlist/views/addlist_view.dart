@@ -44,7 +44,7 @@ class AddlistView extends GetView<AddlistController> {
             const SizedBox(height: 32),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Nama Taks',
+                labelText: 'Nama List',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
