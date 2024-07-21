@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1009422063468",
+    "project_id": "dolistku",
+    "storage_bucket": "dolistku.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009422063468:android:a4cf2a56db7abec70e0549",
+        "android_client_info": {
+          "package_name": "com.example.dolistku"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGVHnTG7LgYzXXXTdZPaTtdU8wqvpYa5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
