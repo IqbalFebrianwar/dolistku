@@ -57,6 +57,6 @@ class SigninController extends GetxController {
     }
 
     localStorage.setItem("userId", user.first.id.toString());
-    Get.offNamed(Routes.HOME);
+    Get.offAllNamed(Routes.HOME);
   }
 }

@@ -47,12 +47,6 @@ GestureDetector todoItem({
               ],
             ),
           ),
-          Checkbox(
-            value: false,
-            onChanged: (bool? value){},
-            activeColor: Colors.black,
-            checkColor: Colors.white,
-          ),
         ],
       ),
     ),

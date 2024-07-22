@@ -8,6 +8,7 @@ class SigninView extends GetView<SigninController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -80,6 +81,15 @@ class SigninView extends GetView<SigninController> {
                   shadowColor: Colors.transparent, // Remove shadow
                 ),
               ),
+              const SizedBox(height: 80,),
+              const Text(
+                "created by",
+                style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+              const Text(
+                "Iqbal Fr dan Demario",
+                style: TextStyle(color: Colors.black, fontSize: 10),
+              )
             ],
           ),
         ),

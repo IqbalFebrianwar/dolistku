@@ -28,7 +28,7 @@ class EditlistView extends GetView<EditlistController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Membuat List',
+              'Mengubah Rencana',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -36,7 +36,7 @@ class EditlistView extends GetView<EditlistController> {
             ),
             const SizedBox(height: 8),
             const Text(
-              'Masukkan list yang ingin kamu buat',
+              'Silahkan Ubah list rencana sesuai keinginan kamu',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
@@ -46,7 +46,7 @@ class EditlistView extends GetView<EditlistController> {
             TextField(
               controller: controller.nameController,
               decoration: InputDecoration(
-                labelText: 'Nama List',
+                labelText: 'Judul',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -68,25 +68,23 @@ class EditlistView extends GetView<EditlistController> {
               ),
             ),
             const SizedBox(height: 32),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  iconColor: Colors.black,
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+            Align(
+              alignment: const Alignment(0, 0),
+              child: TextButton.icon(
+                  onPressed: controller.onSubmit,
+                  label: const Text(
+                    'Simpan',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 100.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),// Add border color
+                    ),
+                    backgroundColor: Colors.black,
+                    shadowColor: Colors.transparent, // Remove shadow
                   ),
                 ),
-                onPressed: controller.onSubmit,
-                child: const Text(
-                  'Simpan',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
             ),
           ],
         ),

@@ -20,16 +20,43 @@ class HomeView extends GetView<HomeController> {
           crossAxisAlignment:
               CrossAxisAlignment.start, // Align text to the start
           children: [
+            Align(
+              alignment: const Alignment(0.9, 0),
+              child: TextButton.icon(
+                  onPressed: controller.onProfile,
+                  label: const Text(
+                    'Profile',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      side: const BorderSide(width: 1.0)// Add border color
+                    ),
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent, // Remove shadow
+                  ),
+                ),
+            ),
             const Text(
               'MyTodolist',
               style: TextStyle(
-                fontSize: 24, // Adjust size as needed
+                fontSize: 25, // Adjust size as needed
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
             ),
             const Text(
-              'Hai, Buatlah list kamu hari ini',
+              'Rencanakan untuk hari-hari mu!',
+              style: TextStyle(
+                fontSize: 20, // Adjust size as needed
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            const Text(
+              'Hai, Buatlah list rencana kamu hari ini',
               style: TextStyle(
                 fontSize: 15,
                 color: Color.fromARGB(255, 150, 150, 150),
